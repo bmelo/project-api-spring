@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  database:
+    image: postgres
+    environment:
+      POSTGRES_DB: "postgres_demo"
+      POSTGRES_USER: "demo"
+      POSTGRES_PASSWORD: "demo"
+    ports:
+      - "5432:5432"
+    volumes:
+      - demodb:/var/lib/postgresql/data
+      
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "demo@demo.com"
+      PGADMIN_DEFAULT_PASSWORD: "demo"
+    ports:
+      - "16543:80"
+    depends_on:
+      - database
+      
+volumes:
+  demodb:
