@@ -32,7 +32,7 @@ public class FuncionarioController {
                                    @Valid @RequestBody Funcionario FuncionarioRequest) {
         return FuncionarioRepository.findById(FuncionarioId)
                 .map(Funcionario -> {
-                    Funcionario.setName(FuncionarioRequest.getName());
+                    Funcionario.setNome(FuncionarioRequest.getNome());
                     Funcionario.setSetor(FuncionarioRequest.getSetor());
                     return FuncionarioRepository.save(Funcionario);
                 }).orElseThrow(() -> new ResourceNotFoundException("Funcionario not found with id " + FuncionarioId));

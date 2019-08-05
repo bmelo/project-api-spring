@@ -44,7 +44,7 @@ public class DependenteController {
 
         return dependenteRepository.findById(dependenteId)
                 .map(dependente -> {
-                    dependente.setName(dependenteRequest.getName());
+                    dependente.setNome(dependenteRequest.getNome());
                     return dependenteRepository.save(dependente);
                 }).orElseThrow(() -> new ResourceNotFoundException("Dependente not found with id " + dependenteId));
     }

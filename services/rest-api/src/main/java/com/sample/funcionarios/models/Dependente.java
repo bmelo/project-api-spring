@@ -12,6 +12,8 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 @Table(name = "dependente")
 public class Dependente extends Audit {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(generator = "dependente_generator")
     @SequenceGenerator(
@@ -23,7 +25,7 @@ public class Dependente extends Audit {
 
     @NotBlank
     @Size(min = 3, max = 100)
-    private String name;
+    private String nome;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "funcionario_id", nullable = false)
@@ -34,29 +36,29 @@ public class Dependente extends Audit {
     /**
      * @return the id
      */
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * @return the name
+     * @return the nome
      */
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * @param name the name to set
+     * @param nome the name to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     /**

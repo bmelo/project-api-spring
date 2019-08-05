@@ -15,6 +15,8 @@ import java.util.Date;
         allowGetters = true
 )
 public abstract class Audit implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate
