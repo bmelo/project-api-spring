@@ -25,6 +25,9 @@ public class Funcionario extends Audit {
     @Column(columnDefinition = "text")
     private String setor;
 
+    @Column(columnDefinition = "text")
+    private String funcao;
+
     /**
      * @return the id
      */
@@ -65,5 +68,19 @@ public class Funcionario extends Audit {
      */
     public void setSetor(String setor) {
         this.setor = setor;
+    }
+
+    /**
+     * @return the funcao
+     */
+    public String getFuncao() {
+        return funcao;
+    }
+
+    /**
+     * @param funcao the funcao to set
+     */
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
     }
 }

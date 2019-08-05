@@ -34,6 +34,7 @@ public class FuncionarioController {
                 .map(Funcionario -> {
                     Funcionario.setNome(FuncionarioRequest.getNome());
                     Funcionario.setSetor(FuncionarioRequest.getSetor());
+                    Funcionario.setFuncao(FuncionarioRequest.getFuncao());
                     return FuncionarioRepository.save(Funcionario);
                 }).orElseThrow(() -> new ResourceNotFoundException("Funcionario not found with id " + FuncionarioId));
     }
