@@ -7,10 +7,10 @@ RUN apk update --no-cache && \
 WORKDIR /app
 COPY pom.xml /app/pom.xml
 
-#RUN mvn install compile package spring-boot:repackage
 RUN mvn package spring-boot:repackage
 
 COPY src /app/src
-RUN mvn spring-boot:repackage
+RUN mvn package spring-boot:repackage
+
 #ENTRYPOINT [ "mvn", "spring-boot:run" ]
 ENTRYPOINT [ "java", "-jar", "target/funcionarios-service-0.0.1-SNAPSHOT.jar" ]
