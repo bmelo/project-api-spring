@@ -3,22 +3,19 @@ version: '3'
 services:
   database:
     image: postgres
-    environment:
-      POSTGRES_DB: "postgres_demo"
-      POSTGRES_USER: "demo"
-      POSTGRES_PASSWORD: "demo"
-    ports:
-      - "5432:5432"
+    env_file: 
+      .env
     volumes:
       - demodb:/var/lib/postgresql/data
       
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "demo@demo.com"
-      PGADMIN_DEFAULT_PASSWORD: "demo"
+  api:
+    image: testeapi
+    build:
+      context: services/rest-api
+    env_file: 
+      .env
     ports:
-      - "16543:80"
+      - "8888:8080"
     depends_on:
       - database
       

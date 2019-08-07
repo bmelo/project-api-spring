@@ -1,10 +1,19 @@
 # REST API example
-Small project with a sample of API using Spring Boot.
+Small project of an API using Spring Boot.
 
-Sample of an REST api to store data of employees and dependents.
 
-## Requirements:
+## Challenge:
 
-> * Authentication using JWT
-> * CRUD for at least one entity
+Develop a sample REST API to store data for employees and their dependents.
 
+ * Authentication using JWT
+ * CRUD for at least one entity
+
+## Deploy it using *docker-compose*
+
+Rename file `.env.sample` to `.env` and modify it.
+
+Run docker-compose:
+```
+docker-compose up -d
+```
